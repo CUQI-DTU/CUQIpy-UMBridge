@@ -10,7 +10,7 @@ def get_supported_models(url:str):
     return umbridge.supported_models(f"{url}:4242")
 
 
-def create_Distribution(url:str, logpdf_model:str):
+def create_distribution(url:str, logpdf_model:str):
     """ Create a new CUQI distribution based on a server-side umbridge model. """
 
     model = umbridge.HTTPModel(f"{url}:4242", logpdf_model)
@@ -26,7 +26,7 @@ def create_Distribution(url:str, logpdf_model:str):
 
     return cuqi.distribution.UserDefinedDistribution(input_sizes[0], logpdf_func=model)
 
-def create_Model(url:str, model:str):
+def create_model(url:str, model:str):
     """ Create a new CUQI model based on a server-side umbridge model. """
 
     model = umbridge.HTTPModel(f"{url}:4242", model)
