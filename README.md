@@ -39,7 +39,7 @@ url = "http://localhost"
 supported_models = get_supported_models(url)
 
 # Create a CUQIpy Model from a UM-Bridge server url
-model = create_model(url, supported_models[1])
+model = create_model(url, supported_models[0])
 
 ```
 
