@@ -53,10 +53,10 @@ def serve_model(model:cuqi.model.Model, port:int=4242):
             self.model = model
 
         def get_input_sizes(self, config):
-            return [self.model.domain_geometry]
+            return [self.model.domain_dim]
         
         def get_output_sizes(self, config):
-            return [self.model.range_geometry]
+            return [self.model.range_dim]
         
         def __call__(self, parameters, config):
             output = self.model.forward(np.asarray(parameters[0]))
@@ -72,7 +72,7 @@ def serve_model(model:cuqi.model.Model, port:int=4242):
         def supports_gradient(self):
             # Attempt to evaluate the gradient
             try:
-                self.model.gradient(np.ones(self.model.domain_geometry), np.ones(self.model.range_geometry))
+                self.model.gradient(np.ones(self.model.domain_dim), np.ones(self.model.domain_dim))
                 return True
             except NotImplementedError:
                 return False

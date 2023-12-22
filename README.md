@@ -62,7 +62,7 @@ serve_distribution(dist)
 (Must run via command line)
 
 ```python
-from cuqi.model import Deconvolution1D
+from cuqi.testproblem import Deconvolution1D
 from cuqipy_umbridge.server import serve_model
 
 # Deconvolution forward model
