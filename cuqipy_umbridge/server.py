@@ -60,7 +60,7 @@ def serve_model(model:cuqi.model.Model, port:int=4242):
         
         def __call__(self, parameters, config):
             output = self.model.forward(np.asarray(parameters[0]))
-            return output.tolist()
+            return [output.tolist()]
         
         def gradient(self, out_wrt, in_wrt, parameters, sens, config):
             output = self.model.gradient(np.asarray(parameters[0]), sens) # Todo: check this
